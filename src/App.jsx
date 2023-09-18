@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar pageName="ECOM"/>
         <Box
           sx={{
             flexGrow: 1,
