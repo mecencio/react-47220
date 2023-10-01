@@ -1,4 +1,4 @@
-import { Box, Button, Card, Typography } from "@mui/material";
+import { Alert, Box, Button, Card, Typography } from "@mui/material";
 import { useState } from "react";
 import { currency } from "../../utils/currency";
 import ItemCount from "../ItemList/ItemCount";
@@ -6,7 +6,7 @@ import Toaster from "../Toaster/Toaster";
 import { LocalShippingOutlined } from "@mui/icons-material";
 
 const ItemDetail = (props) => {
-  const item = props.item;
+  const item = props.item
   const [count, setCount] = useState(1);
   const [open, setOpen] = useState(false);
 
@@ -64,6 +64,7 @@ const ItemDetail = (props) => {
           >
             Price: {currency(item.price)}
           </Typography>
+          { item.stock > 0 ?
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <ItemCount
               quantity={count}
@@ -79,10 +80,14 @@ const ItemDetail = (props) => {
               Add to Cart
             </Button>
           </Box>
+          : <Alert severity="error">No stock</Alert>
+          }
+          { item.price > 4999 &&
           <Box sx={{ display: "flex", justifyContent:"center"}}>
             <LocalShippingOutlined sx={{ mr:"0.5rem"}} />
             <Typography>Free delivery</Typography>
           </Box>
+          }
           <Toaster
             open={open}
             handleClose={handleClose}
