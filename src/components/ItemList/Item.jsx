@@ -21,9 +21,6 @@ const Item = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Box sx={{display: "flex", justifyContent: "center", alignItems: "end"}}>
-        <ItemCount stock={props.product.stock} />
-      </Box>
     </Card>
   );
 };

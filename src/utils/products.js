@@ -2,22 +2,25 @@ export const array_products = [
     {
         id: 1,
         name: "CAMISETA DE CALENTAMIENTO ARGENTINA 3 ESTRELLAS",
-        description: "Afa Preshi 3S es un nuevo producto para Hombre de adidas. Te invitamos a ver las imágenes para apreciar más detalles desde diferentes ángulos.",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque fuga aut id ipsum laboriosam quae vitae incidunt debitis inventore perspiciatis iure sint, dolorem doloremque, officiis minima esse eos vel possimus.",
         image: "images/product-01.webp",
-        stock: "5"
+        stock: "5",
+        price: "5000"
     },
     {
         id: 2,
         name: "CAMISETA ALTERNATIVA SELECCIÓN ARGENTINA FEMENINA 23 PARA NIÑOS",
-        description: "Reflejando los variados paisajes y vistas majestuosas del país, los colores en esta camiseta alternativa adidas para jóvenes se encargan de que siempre te destaqués al momento de apoyar a tu selección.",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque fuga aut id ipsum laboriosam quae vitae incidunt debitis inventore perspiciatis iure sint, dolorem doloremque, officiis minima esse eos vel possimus.",
         image: "images/product-02.webp",
-        stock: "10"
+        stock: "10",
+        price:"5000"
     },
     {
         id: 3,
         name: "BUZO ARGENTINA ESSENTIALS",
-        description: "Afa Og Es Cr Y es un nuevo producto para Niños de adidas.",
+        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque fuga aut id ipsum laboriosam quae vitae incidunt debitis inventore perspiciatis iure sint, dolorem doloremque, officiis minima esse eos vel possimus.",
         image: "images/product-03.webp",
-        stock: "7"
+        stock: "7",
+        price:"5000"
     },
 ];
