@@ -35,7 +35,7 @@ const ItemDetail = (props) => {
       <Box sx={{ display: "flex" }}>
         <Box sx={{ mr: "1rem" }}>
           <img
-            src={item.image}
+            src={"../"+item.image}
             alt={item.name}
             width={"100%"}
             height={"auto"}

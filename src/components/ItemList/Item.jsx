@@ -1,10 +1,14 @@
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Box } from "@mui/material";
-import ItemCount from "./ItemCount";
-
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
 const Item = (props) => {
   return (
-    <Card sx={{ width: 345, m: 2}}>
+    <Card sx={{ width: 345, m: 2 }}>
       <CardActionArea>
         <CardMedia
           component="img"

@@ -1,13 +1,22 @@
-import { useState } from "react";
-import Spinner from "../Spinner/Spinner";
+import { useEffect, useState } from "react";
+import Spinner from "../components/Spinner/Spinner";
 import { Alert, Box, Container, Stack } from "@mui/material";
-import ItemDetail from "./ItemDetail";
-import { array_products } from "../../utils/products";
-import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import ItemDetail from "../components/Detail/ItemDetail";
+import { array_products } from "../utils/products";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState({});
+
+  const { productId } = useParams();
+
+  useEffect(() => {
+    setProduct(array_products.filter(prod => prod.id == productId)[0]);
+    setLoading(false);
+  }, [productId])
+  
 
   return (
     <Box>
@@ -24,7 +33,7 @@ const ItemDetailContainer = () => {
           my:"1rem",
         }}>
           <Breadcrumb category1="Children" category2="T-Shirt" />
-          <ItemDetail item={array_products[1]} />
+          <ItemDetail item={product} />
         </Container>
       )}
     </Box>
