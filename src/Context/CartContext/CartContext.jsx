@@ -29,50 +29,63 @@ const CartProvider = ({ children }) => {
 
   let updateQuatity = (product) => {
     const item = getItem(product.id);
-    if (item.stock >= (item.quantity + product.quantity)) {
-        removeItem(item.id);
-        item.quantity += product.quantity;
-        setCart([...cart, item]);
-        setTotal(getTotal());
-        return true;
+    if (item.stock >= item.quantity + product.quantity) {
+      removeItem(item.id);
+      item.quantity += product.quantity;
+      setCart([...cart, item]);
+      setTotal(getTotal());
+      return true;
     } else return false;
-  }
+  };
 
   let removeItem = (id) => {
-    const index = cart.findIndex(item => item.id === id);
+    const index = cart.findIndex((item) => item.id === id);
     if (index >= 0) {
-        cart.splice(index, 1);
-        setCart([...cart]);
-        return true;
+      cart.splice(index, 1);
+      setCart([...cart]);
+      return true;
     } else return false;
-  }
+  };
 
   let clear = () => {
     setCart([]);
-  }
+  };
 
   let increase = (id) => {
     const item = getItem(id);
     if (item.quantity < item.stock) {
-        item.quantity++;
-        setTotal(getTotal());
+      item.quantity++;
+      setTotal(getTotal());
     }
-  }
+  };
 
   let decrease = (id) => {
     const item = getItem(id);
     item.quantity--;
     if (item.quantity <= 0) {
-        removeItem(id);
+      removeItem(id);
     }
     setTotal(getTotal());
-  }
+  };
 
   return (
-    <CartContext.Provider value={{cart, total, addToCart, removeItem, cartSize:cart.length, increase, decrease, clear, setTotal, getTotal}}>
-        {children}
+    <CartContext.Provider
+      value={{
+        cart,
+        total,
+        addToCart,
+        removeItem,
+        cartSize: cart.length,
+        increase,
+        decrease,
+        clear,
+        setTotal,
+        getTotal,
+      }}
+    >
+      {children}
     </CartContext.Provider>
-  )
+  );
 };
 
 export default CartProvider;

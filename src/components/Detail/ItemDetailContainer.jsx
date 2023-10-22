@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Spinner from "../components/Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 import { Alert, Box, Container, Stack } from "@mui/material";
-import ItemDetail from "../components/Detail/ItemDetail";
-import { array_products } from "../utils/products";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import ItemDetail from "./ItemDetail";
+import { array_products } from "../../utils/products";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {

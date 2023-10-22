@@ -1,17 +1,23 @@
 import { Alert, Box, Button, Card, Typography } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { currency } from "../../utils/currency";
 import ItemCount from "../ItemList/ItemCount";
 import Toaster from "../Toaster/Toaster";
 import { LocalShippingOutlined } from "@mui/icons-material";
+import { CartContext } from "../../Context/CartContext/CartContext";
 
-const ItemDetail = (props) => {
-  const item = props.item
+const ItemDetail = ({ item }) => {
   const [count, setCount] = useState(1);
   const [open, setOpen] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
   const onSub = () => count > 1 && setCount(count - 1);
   const onAdd = () => count < item.stock && setCount(count + 1);
+
+  const addItem = () => {
+    item.quantity = count;
+    addToCart(structuredClone(item)) && handleOpen();
+  }
 
   const handleOpen = () => {
     setOpen(true);
@@ -35,9 +41,9 @@ const ItemDetail = (props) => {
       <Box sx={{ display: "flex" }}>
         <Box sx={{ mr: "1rem" }}>
           <img
-            src={"../"+item.image}
+            src={item.images[0]}
             alt={item.name}
-            width={"100%"}
+            width={"500px"}
             height={"auto"}
           />
         </Box>
@@ -75,7 +81,7 @@ const ItemDetail = (props) => {
             <Button
               variant="contained"
               sx={{ ml: "0.375rem" }}
-              onClick={handleOpen}
+              onClick={addItem}
             >
               Add to Cart
             </Button>

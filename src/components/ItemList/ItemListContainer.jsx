@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Stack, Box } from "@mui/material";
-import { asyncMock } from "../utils/asyncMock";
-import Spinner from "../components/Spinner/Spinner";
-import ItemList from "../components/ItemList/ItemList";
+import { asyncMock } from "../../utils/asyncMock";
+import Spinner from "../Spinner/Spinner";
+import ItemList from "./ItemList";
 
 const ItemListContainer = (props) => {
   const [loading, setLoading] = useState(true);
