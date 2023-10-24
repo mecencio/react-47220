@@ -3,17 +3,27 @@ import { Stack, Box } from "@mui/material";
 import { asyncMock } from "../../utils/asyncMock";
 import Spinner from "../Spinner/Spinner";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = (props) => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
 
+  const { categoryId } = useParams();
+
   useEffect(() => {
+    setLoading(true);
+    categoryId ? 
+    asyncMock(props.array_products).then((result) => {
+      setProducts(result.filter(product => product.category === categoryId));
+      setLoading(false);
+    })
+    :
     asyncMock(props.array_products).then((result) => {
       setProducts(result);
       setLoading(false);
     });
-  }, []);
+  }, [categoryId]);
 
   return (
     <Stack>

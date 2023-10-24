@@ -92,13 +92,36 @@ function Navbar(props) {
               }}
             >
               <MenuItem key={"Home"} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Home</Typography>
+                <NavLink
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </MenuItem>
-              <MenuItem key={"Categories"} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Categories</Typography>
+              <MenuItem key={"Category-tshirt"} onClick={handleCloseNavMenu}>
+                <NavLink
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/category/T-Shirt"
+                >
+                  T-Shirt
+                </NavLink>
               </MenuItem>
-              <MenuItem key={"Products"} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Products</Typography>
+              <MenuItem key={"Category-pants"} onClick={handleCloseNavMenu}>
+                <NavLink
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/category/Pants"
+                >
+                  Pants
+                </NavLink>
+              </MenuItem>
+              <MenuItem key={"Category-shoes"} onClick={handleCloseNavMenu}>
+                <NavLink
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/category/Shoes"
+                >
+                  Shoes
+                </NavLink>
               </MenuItem>
               <MenuItem key={"Contact us"} onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Contact us</Typography>
@@ -129,7 +152,12 @@ function Navbar(props) {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >
-              Home
+              <NavLink
+                style={{ textDecoration: "none", color: "white" }}
+                to="/"
+              >
+                Home
+              </NavLink>
             </Button>
             <Box sx={{ flexGrow: 0 }}>
               <Button
@@ -147,7 +175,6 @@ function Navbar(props) {
                   vertical: "top",
                   horizontal: "right",
                 }}
-                keepMounted
                 transformOrigin={{
                   vertical: "top",
                   horizontal: "right",
@@ -155,24 +182,32 @@ function Navbar(props) {
                 open={Boolean(anchorElCat)}
                 onClose={handleCloseCatMenu}
               >
-                <MenuItem key={"footwear"} onClick={handleCloseCatMenu}>
-                  <Typography textAlign="center">Footwear</Typography>
+                <MenuItem onClick={handleCloseCatMenu}>
+                  <NavLink
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/category/T-Shirt"
+                  >
+                    T-Shirt
+                  </NavLink>
                 </MenuItem>
-                <MenuItem key={"clothing"} onClick={handleCloseCatMenu}>
-                  <Typography textAlign="center">Clothing</Typography>
+                <MenuItem onClick={handleCloseCatMenu}>
+                  <NavLink
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/category/Pants"
+                  >
+                    Pants
+                  </NavLink>
                 </MenuItem>
-                <MenuItem key={"accessories"} onClick={handleCloseCatMenu}>
-                  <Typography textAlign="center">Accessories</Typography>
+                <MenuItem onClick={handleCloseCatMenu}>
+                  <NavLink
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/category/Shoes"
+                  >
+                    Shoes
+                  </NavLink>
                 </MenuItem>
               </Menu>
             </Box>
-            <Button
-              key={"Products"}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Products
-            </Button>
             <Button
               key={"Contact us"}
               onClick={handleCloseNavMenu}
